@@ -150,12 +150,10 @@ p {
 }
 
 .nav__logo {
-  height: 36px;
+  height: 28px;
   width: auto;
   transition: var(--transition);
-  border-radius: 6px;
-  background: var(--creme);
-  padding: 4px 10px;
+  filter: brightness(1.4);
 }
 
 .nav.scrolled .nav__logo {
@@ -312,19 +310,11 @@ p {
   max-width: 650px;
 }
 
-.hero__logo-text {
-  display: block;
-  font-family: var(--font-display);
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  font-weight: 400;
-  color: var(--dourado);
-  letter-spacing: 0.02em;
-  margin-bottom: 0.5rem;
-}
-
-.hero__logo-text em {
-  font-style: italic;
-  color: var(--terracota);
+.hero__logo {
+  height: clamp(40px, 7vw, 80px);
+  width: auto;
+  margin-bottom: 1.5rem;
+  filter: brightness(1.4);
 }
 
 .hero__tagline {
@@ -1078,17 +1068,12 @@ p {
   padding-top: 2.5rem;
 }
 
-.contato__footer-logo-text {
-  font-family: var(--font-display);
-  font-size: 1.5rem;
-  color: var(--dourado);
-  opacity: 0.6;
-  margin-bottom: 0.8rem;
-}
-
-.contato__footer-logo-text em {
-  font-style: italic;
-  color: var(--terracota);
+.contato__footer-logo {
+  height: 36px;
+  width: auto;
+  margin: 0 auto 0.8rem;
+  filter: brightness(1.4);
+  opacity: 0.8;
 }
 
 .contato__footer-tagline {
