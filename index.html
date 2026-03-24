@@ -3,423 +3,2311 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MariTaty — Media Kit | Programa de Opinião, Humor e Entrevistas</title>
-  <meta name="description" content="Media Kit do programa MariTaty, apresentado por Mari Alexandre e Taty Abreu. Quase 800 mil seguidores combinados. Conheça os formatos de publicidade.">
-  <meta property="og:title" content="MariTaty — Media Kit">
-  <meta property="og:description" content="Duas mulheres, todas as opiniões. Conheça o programa e os formatos de publicidade.">
-  <meta property="og:image" content="assets/2.png">
+  <title>MariTaty | Media Kit Digital</title>
+  <meta name="description" content="Media Kit do programa MariTaty, apresentado por Mari Alexandre e Taty Abreu. Duas mulheres, todas as opinioes.">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+  <style>
+    /* ============================================
+       RESET E BASE
+       ============================================ */
+    *, *::before, *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --marrom: #5C2E0E;
+      --laranja: #E8A838;
+      --terracota: #C47858;
+      --nude: #D4A574;
+      --bege: #E8C9B0;
+      --creme: #F9F3ED;
+      --branco: #FFFFFF;
+      --gradient-blob: linear-gradient(135deg, #D4837A, #E8A050, #E8C84A, #A8C87A);
+    }
+
+    html {
+      scroll-behavior: auto; /* Lenis cuida do smooth scroll */
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--creme);
+      color: var(--marrom);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      line-height: 1.1;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ============================================
+       PLACEHOLDERS DE IMAGEM
+       ============================================ */
+    .img-placeholder {
+      background-color: var(--nude);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--marrom);
+      border: 2px dashed var(--terracota);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .img-placeholder span {
+      padding: 12px;
+      z-index: 1;
+    }
+
+    /* ============================================
+       FORMAS ORGANICAS (BLOBS) DECORATIVAS
+       ============================================ */
+    .blob {
+      position: absolute;
+      border-radius: 50% 40% 60% 30% / 40% 50% 30% 60%;
+      opacity: 0.15;
+      pointer-events: none;
+      z-index: 0;
+      will-change: transform;
+    }
+
+    .blob--terracota { background-color: var(--terracota); }
+    .blob--nude { background-color: var(--nude); }
+    .blob--bege { background-color: var(--bege); }
+    .blob--gradient { background: var(--gradient-blob); }
+
+    /* ============================================
+       NAVEGACAO FIXA
+       ============================================ */
+    .navbar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      padding: 16px 0;
+      transition: background-color 0.4s ease, padding 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .navbar.scrolled {
+      background-color: var(--marrom);
+      padding: 10px 0;
+      box-shadow: 0 4px 20px rgba(92, 46, 14, 0.3);
+    }
+
+    .navbar .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .navbar__logo {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 28px;
+      color: var(--marrom);
+      transition: color 0.4s ease;
+    }
+
+    .navbar.scrolled .navbar__logo {
+      color: var(--creme);
+    }
+
+    .navbar__links {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .navbar__links a {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 500;
+      font-size: 15px;
+      color: var(--marrom);
+      transition: color 0.3s ease;
+      position: relative;
+    }
+
+    .navbar__links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--laranja);
+      transition: width 0.3s ease;
+    }
+
+    .navbar__links a:hover::after {
+      width: 100%;
+    }
+
+    .navbar.scrolled .navbar__links a {
+      color: var(--creme);
+    }
+
+    /* Hamburger mobile */
+    .navbar__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      z-index: 1001;
+      background: none;
+      border: none;
+      padding: 8px;
+    }
+
+    .navbar__hamburger span {
+      display: block;
+      width: 28px;
+      height: 3px;
+      background-color: var(--marrom);
+      border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+
+    .navbar.scrolled .navbar__hamburger span {
+      background-color: var(--creme);
+    }
+
+    .navbar__hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 6px);
+    }
+
+    .navbar__hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .navbar__hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(5px, -6px);
+    }
+
+    /* Mobile menu overlay */
+    .navbar__mobile-menu {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: var(--marrom);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+      z-index: 999;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    .navbar__mobile-menu.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .navbar__mobile-menu a {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--creme);
+      transition: color 0.3s ease;
+    }
+
+    .navbar__mobile-menu a:hover {
+      color: var(--laranja);
+    }
+
+    @media (max-width: 768px) {
+      .navbar__links {
+        display: none;
+      }
+      .navbar__hamburger {
+        display: flex;
+      }
+    }
+
+    /* ============================================
+       SECAO 1 - HERO / CAPA
+       ============================================ */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      padding: 120px 24px 80px;
+      background-color: var(--creme);
+    }
+
+    .hero__content {
+      text-align: center;
+      position: relative;
+      z-index: 1;
+      max-width: 800px;
+    }
+
+    .hero__logo {
+      width: 300px;
+      height: 80px;
+      margin: 0 auto 32px;
+      border-radius: 12px;
+    }
+
+    .hero__tagline {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(16px, 2.5vw, 20px);
+      font-weight: 500;
+      color: var(--marrom);
+      margin-bottom: 16px;
+      letter-spacing: 1px;
+    }
+
+    .hero__names {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 6vw, 56px);
+      font-weight: 900;
+      color: var(--laranja);
+      margin-bottom: 40px;
+    }
+
+    .hero__image {
+      width: 100%;
+      max-width: 600px;
+      height: 400px;
+      margin: 0 auto 40px;
+      border-radius: 24px;
+    }
+
+    .hero__platforms {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+    }
+
+    .hero__platforms a {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background-color: var(--marrom);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .hero__platforms a:hover {
+      background-color: var(--laranja);
+      transform: scale(1.1);
+    }
+
+    .hero__platforms a svg {
+      width: 22px;
+      height: 22px;
+      fill: var(--creme);
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background-color: var(--laranja);
+      color: var(--branco);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 16px 40px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(232, 168, 56, 0.4);
+    }
+
+    /* ============================================
+       SECAO 2 - NOSSO PROGRAMA
+       ============================================ */
+    .programa {
+      padding: 100px 0;
+      background-color: var(--creme);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .programa__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .programa__text h2 {
+      font-size: clamp(32px, 4vw, 48px);
+      color: var(--marrom);
+      margin-bottom: 24px;
+    }
+
+    .programa__text h2 span {
+      color: var(--laranja);
+    }
+
+    .programa__text p {
+      font-size: 17px;
+      color: var(--marrom);
+      line-height: 1.8;
+      margin-bottom: 32px;
+    }
+
+    .programa__image {
+      width: 100%;
+      height: 300px;
+      border-radius: 20px;
+    }
+
+    .programa__cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 40px;
+    }
+
+    .programa__card {
+      background-color: var(--bege);
+      padding: 20px;
+      border-radius: 16px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .programa__card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(92, 46, 14, 0.15);
+    }
+
+    .programa__card-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--terracota);
+      margin-bottom: 4px;
+    }
+
+    .programa__card-value {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--marrom);
+    }
+
+    @media (max-width: 768px) {
+      .programa__grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+      .programa__cards {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* ============================================
+       SECAO 3 - APRESENTADORAS + INVESTINDO EM NOS
+       ============================================ */
+    .apresentadoras {
+      padding: 100px 0;
+      background-color: var(--marrom);
+      color: var(--creme);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .apresentadoras__section-title {
+      text-align: center;
+      font-size: clamp(32px, 5vw, 52px);
+      color: var(--creme);
+      margin-bottom: 60px;
+    }
+
+    .apresentadoras__section-title span {
+      color: var(--laranja);
+    }
+
+    .apresentadoras__grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+
+    .apresentadora {
+      text-align: center;
+    }
+
+    .apresentadora__foto {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      margin: 0 auto 24px;
+      border: 4px solid var(--laranja);
+      clip-path: circle(0% at 50% 50%);
+    }
+
+    .apresentadora__nome {
+      font-size: clamp(28px, 4vw, 40px);
+      color: var(--laranja);
+      margin-bottom: 16px;
+    }
+
+    .apresentadora__bio {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--bege);
+      margin-bottom: 32px;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .apresentadora__destaques {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .destaque-item {
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 16px 12px;
+      border: 1px solid rgba(232, 168, 56, 0.15);
+    }
+
+    .destaque-item__numero {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 900;
+      color: var(--laranja);
+      margin-bottom: 4px;
+    }
+
+    .destaque-item__desc {
+      font-size: 13px;
+      color: var(--bege);
+      line-height: 1.4;
+    }
+
+    .apresentadora__marcos {
+      margin-bottom: 28px;
+    }
+
+    .apresentadora__marcos h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--terracota);
+      margin-bottom: 8px;
+    }
+
+    .marcos-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .marcos-tag {
+      background: rgba(232, 168, 56, 0.12);
+      color: var(--bege);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid rgba(232, 168, 56, 0.2);
+    }
+
+    .apresentadora__redes {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .rede-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 12px;
+      padding: 12px 16px;
+    }
+
+    .rede-item svg {
+      width: 20px;
+      height: 20px;
+      fill: var(--laranja);
+      flex-shrink: 0;
+    }
+
+    .rede-item__info {
+      text-align: left;
+    }
+
+    .rede-item__handle {
+      font-size: 13px;
+      color: var(--bege);
+    }
+
+    .rede-item__numero {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 900;
+      color: var(--laranja);
+    }
+
+    .rede-item__badge {
+      background-color: var(--laranja);
+      color: var(--marrom);
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+    }
+
+    /* Investindo em Nos */
+    .investindo {
+      margin-top: 100px;
+      text-align: center;
+    }
+
+    .investindo h3 {
+      font-size: clamp(28px, 4vw, 44px);
+      color: var(--creme);
+      margin-bottom: 16px;
+    }
+
+    .investindo h3 span {
+      color: var(--laranja);
+    }
+
+    .investindo__subtitle {
+      font-size: 16px;
+      color: var(--bege);
+      margin-bottom: 48px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .investindo__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .investindo__card {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(232, 168, 56, 0.15);
+      border-radius: 20px;
+      padding: 28px 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .investindo__card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .investindo__card-icon {
+      width: 48px;
+      height: 48px;
+      background-color: rgba(232, 168, 56, 0.15);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+
+    .investindo__card-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--laranja);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .investindo__card h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--creme);
+      margin-bottom: 8px;
+    }
+
+    .investindo__card p {
+      font-size: 14px;
+      color: var(--bege);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 1024px) {
+      .investindo__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .apresentadoras__grid {
+        grid-template-columns: 1fr;
+        gap: 60px;
+      }
+      .investindo__grid {
+        grid-template-columns: 1fr;
+      }
+      .apresentadora__destaques {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* ============================================
+       SECAO 4 - NICHOS
+       ============================================ */
+    .nichos {
+      padding: 100px 0;
+      background-color: var(--creme);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .nichos__title {
+      text-align: center;
+      font-size: clamp(32px, 5vw, 52px);
+      color: var(--marrom);
+      margin-bottom: 16px;
+    }
+
+    .nichos__title span {
+      color: var(--laranja);
+    }
+
+    .nichos__subtitle {
+      text-align: center;
+      font-size: 17px;
+      color: var(--terracota);
+      margin-bottom: 48px;
+    }
+
+    .nichos__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .nicho-card {
+      background-color: var(--branco);
+      border-radius: 20px;
+      padding: 32px 20px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(196, 120, 88, 0.15);
+    }
+
+    .nicho-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(92, 46, 14, 0.12);
+    }
+
+    .nicho-card__icon {
+      width: 56px;
+      height: 56px;
+      background: var(--gradient-blob);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+
+    .nicho-card__icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--branco);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .nicho-card__label {
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--marrom);
+    }
+
+    @media (max-width: 1024px) {
+      .nichos__grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .nichos__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    /* ============================================
+       SECAO 5 - REDES SOCIAIS
+       ============================================ */
+    .redes {
+      padding: 100px 0;
+      background-color: var(--creme);
+      position: relative;
+    }
+
+    .redes__title {
+      text-align: center;
+      font-size: clamp(32px, 5vw, 52px);
+      color: var(--marrom);
+      margin-bottom: 48px;
+    }
+
+    .redes__title span {
+      color: var(--laranja);
+    }
+
+    .redes__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .rede-card {
+      background-color: var(--branco);
+      border-radius: 20px;
+      padding: 32px 24px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(196, 120, 88, 0.12);
+    }
+
+    .rede-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(92, 46, 14, 0.12);
+    }
+
+    .rede-card__icon {
+      width: 64px;
+      height: 64px;
+      background-color: var(--marrom);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+
+    .rede-card__icon svg {
+      width: 32px;
+      height: 32px;
+      fill: var(--creme);
+    }
+
+    .rede-card__name {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--marrom);
+      margin-bottom: 8px;
+    }
+
+    .rede-card__desc {
+      font-size: 14px;
+      color: var(--terracota);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 1024px) {
+      .redes__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .redes__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ============================================
+       SECAO 6 - NUMEROS E ALCANCE
+       ============================================ */
+    .numeros {
+      padding: 100px 0;
+      background-color: var(--creme);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .numeros__title {
+      text-align: center;
+      font-size: clamp(32px, 5vw, 52px);
+      color: var(--marrom);
+      margin-bottom: 16px;
+    }
+
+    .numeros__title span {
+      color: var(--laranja);
+    }
+
+    .numeros__hero {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+
+    .numeros__big {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(72px, 12vw, 140px);
+      font-weight: 900;
+      color: var(--laranja);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .numeros__big-label {
+      font-size: 18px;
+      color: var(--terracota);
+      font-weight: 500;
+    }
+
+    .numeros__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-bottom: 40px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .numero-card {
+      background-color: var(--bege);
+      border-radius: 20px;
+      padding: 28px 20px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .numero-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(92, 46, 14, 0.15);
+    }
+
+    .numero-card__value {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 3.5vw, 40px);
+      font-weight: 900;
+      color: var(--laranja);
+      margin-bottom: 4px;
+    }
+
+    .numero-card__label {
+      font-size: 14px;
+      color: var(--marrom);
+      font-weight: 500;
+    }
+
+    .numeros__destaque {
+      text-align: center;
+      background: var(--gradient-blob);
+      border-radius: 20px;
+      padding: 32px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .numeros__destaque p {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(24px, 3vw, 36px);
+      font-weight: 900;
+      color: var(--branco);
+    }
+
+    @media (max-width: 1024px) {
+      .numeros__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .numeros__grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* ============================================
+       SECAO 7 - PERFIL DO PUBLICO
+       ============================================ */
+    .publico {
+      padding: 100px 0;
+      background-color: var(--marrom);
+      color: var(--creme);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .publico__title {
+      text-align: center;
+      font-size: clamp(32px, 5vw, 52px);
+      color: var(--creme);
+      margin-bottom: 60px;
+    }
+
+    .publico__title span {
+      color: var(--laranja);
+    }
+
+    .publico__stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      margin-bottom: 48px;
+    }
+
+    .publico__stat {
+      text-align: center;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 20px;
+      padding: 32px 20px;
+      border: 1px solid rgba(232, 168, 56, 0.15);
+    }
+
+    .publico__stat-icon {
+      width: 56px;
+      height: 56px;
+      background: rgba(232, 168, 56, 0.15);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+    }
+
+    .publico__stat-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: var(--laranja);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .publico__stat-value {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 900;
+      color: var(--laranja);
+      margin-bottom: 4px;
+    }
+
+    .publico__stat-label {
+      font-size: 15px;
+      color: var(--bege);
+    }
+
+    .publico__tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .publico__tag {
+      padding: 10px 24px;
+      border-radius: 50px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    .publico__tag--laranja {
+      background-color: var(--laranja);
+      color: var(--marrom);
+    }
+
+    .publico__tag--bege {
+      background-color: var(--bege);
+      color: var(--marrom);
+    }
+
+    @media (max-width: 768px) {
+      .publico__stats {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ============================================
+       SECAO 8 - VISUALIZACOES (Carrossel)
+       ============================================ */
+    .visualizacoes {
+      padding: 100px 0;
+      background-color: var(--creme);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .visualizacoes__title {
+      text-align: center;
+      font-size: clamp(32px, 5vw, 52px);
+      color: var(--marrom);
+      margin-bottom: 8px;
+    }
+
+    .visualizacoes__title span {
+      color: var(--laranja);
+    }
+
+    .visualizacoes__subtitle {
+      text-align: center;
+      font-size: 17px;
+      color: var(--terracota);
+      margin-bottom: 48px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .mockup-swiper {
+      padding: 20px 0 60px;
+    }
+
+    .mockup-slide {
+      display: flex;
+      justify-content: center;
+    }
+
+    .mockup-phone {
+      width: 260px;
+      background-color: #1a1a1a;
+      border-radius: 36px;
+      padding: 12px;
+      position: relative;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+    }
+
+    .mockup-phone__notch {
+      width: 120px;
+      height: 28px;
+      background-color: #1a1a1a;
+      border-radius: 0 0 16px 16px;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+
+    .mockup-phone__screen {
+      width: 100%;
+      aspect-ratio: 9/16;
+      border-radius: 28px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .mockup-phone__screen .img-placeholder {
+      width: 100%;
+      height: 100%;
+      border-radius: 0;
+      border: none;
+      font-size: 16px;
+    }
+
+    .mockup-phone__badge {
+      position: absolute;
+      bottom: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: var(--laranja);
+      color: var(--marrom);
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 900;
+      padding: 8px 20px;
+      border-radius: 50px;
+      z-index: 3;
+      white-space: nowrap;
+    }
+
+    .swiper-pagination-bullet {
+      background-color: var(--terracota) !important;
+      opacity: 0.4 !important;
+    }
+
+    .swiper-pagination-bullet-active {
+      background-color: var(--laranja) !important;
+      opacity: 1 !important;
+    }
+
+    /* ============================================
+       SECAO 9 - FORMATOS DE PARCERIA
+       ============================================ */
+    .parcerias {
+      padding: 100px 0;
+      background-color: var(--marrom);
+      color: var(--creme);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .parcerias__title {
+      text-align: center;
+      font-size: clamp(32px, 5vw, 52px);
+      color: var(--creme);
+      margin-bottom: 16px;
+    }
+
+    .parcerias__title span {
+      color: var(--laranja);
+    }
+
+    .parcerias__subtitle {
+      text-align: center;
+      font-size: 17px;
+      color: var(--bege);
+      margin-bottom: 48px;
+    }
+
+    .parcerias__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+
+    .parceria-card {
+      background: linear-gradient(135deg, rgba(196, 120, 88, 0.25), rgba(212, 165, 116, 0.15));
+      border: 1px solid rgba(232, 168, 56, 0.15);
+      border-radius: 20px;
+      padding: 28px 24px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .parceria-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .parceria-card__icon {
+      width: 48px;
+      height: 48px;
+      background: rgba(232, 168, 56, 0.15);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    .parceria-card__icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--laranja);
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .parceria-card h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 17px;
+      font-weight: 700;
+      color: var(--creme);
+      margin-bottom: 8px;
+    }
+
+    .parceria-card p {
+      font-size: 14px;
+      color: var(--bege);
+      line-height: 1.6;
+    }
+
+    .parcerias__footer {
+      text-align: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: var(--laranja);
+      font-style: italic;
+    }
+
+    .parceria-card--full {
+      grid-column: 2 / 3;
+    }
+
+    @media (max-width: 1024px) {
+      .parcerias__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .parceria-card--full {
+        grid-column: auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .parcerias__grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ============================================
+       SECAO 10 - CTA / CONTATO COMERCIAL
+       ============================================ */
+    .contato {
+      padding: 100px 0;
+      background: linear-gradient(135deg, #D4837A 0%, #E8A050 30%, #E8C84A 60%, #A8C87A 100%);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contato__title {
+      font-size: clamp(36px, 6vw, 64px);
+      color: var(--branco);
+      margin-bottom: 16px;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    }
+
+    .contato__subtitle {
+      font-size: 18px;
+      color: var(--branco);
+      max-width: 600px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+      opacity: 0.95;
+    }
+
+    .contato__email {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(16px, 2.5vw, 22px);
+      font-weight: 700;
+      color: var(--branco);
+      display: block;
+      margin-bottom: 24px;
+      word-break: break-all;
+    }
+
+    .contato__buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .btn-whatsapp {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background-color: var(--branco);
+      color: var(--marrom);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 16px;
+      padding: 16px 32px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-whatsapp svg {
+      width: 22px;
+      height: 22px;
+      fill: #25D366;
+    }
+
+    .contato__logo {
+      width: 200px;
+      height: 60px;
+      margin: 0 auto 16px;
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.5);
+    }
+
+    .contato__handle {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--branco);
+      opacity: 0.9;
+    }
+
+    /* ============================================
+       FOOTER
+       ============================================ */
+    .footer {
+      background-color: var(--marrom);
+      padding: 24px 0;
+      text-align: center;
+    }
+
+    .footer p {
+      font-size: 14px;
+      color: var(--bege);
+      opacity: 0.6;
+    }
+
+    /* ============================================
+       UTILITARIOS DE ANIMACAO
+       ============================================ */
+    .anim-up {
+      opacity: 0;
+      transform: translateY(40px);
+    }
+
+    .anim-fade {
+      opacity: 0;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- ==========================================
-       NAVIGATION
-       ========================================== -->
-  <nav class="nav" id="nav">
-    <img src="assets/logo-maritaty.png" alt="MariTaty" class="nav__logo">
-    <ul class="nav__links">
-      <li><a href="#sobre">Sobre</a></li>
-      <li><a href="#apresentadoras">Apresentadoras</a></li>
-      <li><a href="#alcance">Alcance</a></li>
-      <li><a href="#publicidade">Publicidade</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
-    <div class="nav__hamburger" id="hamburger" aria-label="Menu">
-      <span></span>
-      <span></span>
-      <span></span>
+  <!-- ============================================
+       NAVEGACAO
+       ============================================ -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="#" class="navbar__logo">MariTaty</a>
+      <ul class="navbar__links">
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#apresentadoras">Apresentadoras</a></li>
+        <li><a href="#alcance">Alcance</a></li>
+        <li><a href="#publicidade">Publicidade</a></li>
+        <li><a href="#contato">Contato</a></li>
+      </ul>
+      <button class="navbar__hamburger" id="hamburger" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div class="navbar__mobile-menu" id="mobileMenu">
+      <a href="#sobre" class="mobile-link">Sobre</a>
+      <a href="#apresentadoras" class="mobile-link">Apresentadoras</a>
+      <a href="#alcance" class="mobile-link">Alcance</a>
+      <a href="#publicidade" class="mobile-link">Publicidade</a>
+      <a href="#contato" class="mobile-link">Contato</a>
     </div>
   </nav>
 
-  <!-- Mobile Menu -->
-  <div class="nav__mobile" id="mobileMenu">
-    <a href="#sobre">Sobre</a>
-    <a href="#apresentadoras">Apresentadoras</a>
-    <a href="#alcance">Alcance</a>
-    <a href="#publicidade">Publicidade</a>
-    <a href="#contato">Contato</a>
-  </div>
-
-  <!-- ==========================================
-       SECTION 1 — HERO
-       ========================================== -->
+  <!-- ============================================
+       SECAO 1 - HERO / CAPA
+       ============================================ -->
   <section class="hero" id="hero">
-    <div class="hero__bg">
-      <img src="assets/2.png" alt="Mari Alexandre e Taty Abreu" loading="eager">
-    </div>
-    <div class="hero__overlay"></div>
+    <!-- Blobs decorativos -->
+    <div class="blob blob--terracota" style="width: 400px; height: 400px; top: -100px; right: -100px;" data-speed="0.03"></div>
+    <div class="blob blob--nude" style="width: 300px; height: 300px; bottom: -50px; left: -80px;" data-speed="0.05"></div>
+    <div class="blob blob--gradient" style="width: 250px; height: 250px; top: 30%; left: 10%;" data-speed="0.04"></div>
+    <div class="blob blob--bege" style="width: 200px; height: 200px; bottom: 20%; right: 10%;" data-speed="0.06"></div>
+
     <div class="hero__content">
-      <img src="assets/logo-maritaty.png" alt="MariTaty" class="hero__logo animate-on-scroll">
-      <h1 class="hero__tagline animate-on-scroll stagger-1">Duas mulheres,<br><em>todas as opiniões.</em></h1>
-      <p class="hero__subtitle animate-on-scroll stagger-2">Programa de opinião, humor e entrevistas</p>
-      <div class="hero__platforms animate-on-scroll stagger-3">
-        <span>
+      <div class="img-placeholder hero__logo anim-up" data-image="logo-maritaty">
+        <span>LOGO MARITATY</span>
+      </div>
+
+      <p class="hero__tagline anim-up">Duas mulheres, todas as opinioes</p>
+
+      <h1 class="hero__names anim-up">Mari Alexandre<br>&amp; Taty Abreu</h1>
+
+      <div class="img-placeholder hero__image anim-up" data-image="foto-hero-juntas">
+        <span>FOTO HERO . AS DUAS JUNTAS</span>
+      </div>
+
+      <div class="hero__platforms anim-up">
+        <a href="#" aria-label="YouTube">
           <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-          YouTube
-        </span>
-        <span>
+        </a>
+        <a href="#" aria-label="Spotify">
           <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-          Spotify
-        </span>
-        <span>
+        </a>
+        <a href="#" aria-label="Instagram">
           <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-          Instagram
-        </span>
-        <span>
+        </a>
+        <a href="#" aria-label="TikTok">
           <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
-          TikTok
-        </span>
+        </a>
       </div>
-      <a href="#contato" class="btn btn--primary animate-on-scroll stagger-4">Fale com nosso comercial</a>
+
+      <a href="#contato" class="btn-primary anim-up">Fale com nosso comercial</a>
     </div>
   </section>
 
-  <!-- ==========================================
-       SECTION 2 — SOBRE O PROGRAMA
-       ========================================== -->
-  <section class="sobre" id="sobre">
-    <div class="sobre__grid">
-      <div class="sobre__text">
-        <h2 class="section-title animate-on-scroll">Sobre o Programa</h2>
-        <p class="animate-on-scroll stagger-1">O MariTaty é um programa de mesa apresentado por Mari Alexandre e Taty Abreu — duas mulheres com trajetórias distintas que se unem para comentar, com humor e opinião forte, as principais notícias da semana no Brasil e no mundo. Com formato que vai além do podcast tradicional, o MariTaty combina comentários de atualidades com entrevistas e bate-papos com convidados especiais.</p>
-        <div class="sobre__ficha animate-on-scroll stagger-2">
-          <div class="sobre__ficha-card">
-            <div class="sobre__ficha-label">Formato</div>
-            <div class="sobre__ficha-value">Programa de mesa</div>
+  <!-- ============================================
+       SECAO 2 - NOSSO PROGRAMA
+       ============================================ -->
+  <section class="programa" id="sobre">
+    <div class="blob blob--bege" style="width: 350px; height: 350px; top: -100px; right: -50px;" data-speed="0.04"></div>
+
+    <div class="container">
+      <div class="programa__grid">
+        <div class="programa__text">
+          <h2 class="anim-up">Nosso <span>Programa</span></h2>
+          <p class="anim-up">
+            O MariTaty e um programa de mesa apresentado por Mari Alexandre e Taty Abreu, duas mulheres com trajetorias distintas que se unem para comentar, com humor e opiniao forte, as principais noticias da semana no Brasil e no mundo. Com formato que vai alem do podcast tradicional, o MariTaty combina comentarios de atualidades com entrevistas e bate-papos com convidados especiais.
+          </p>
+          <div class="programa__cards">
+            <div class="programa__card anim-up">
+              <div class="programa__card-label">Formato</div>
+              <div class="programa__card-value">Programa de mesa (comentarios + entrevistas)</div>
+            </div>
+            <div class="programa__card anim-up">
+              <div class="programa__card-label">Duracao</div>
+              <div class="programa__card-value">1h a 1h30 por episodio</div>
+            </div>
+            <div class="programa__card anim-up">
+              <div class="programa__card-label">Tom</div>
+              <div class="programa__card-value">Humor + Opiniao forte</div>
+            </div>
+            <div class="programa__card anim-up">
+              <div class="programa__card-label">Gravacao</div>
+              <div class="programa__card-value">Estudio proprio</div>
+            </div>
           </div>
-          <div class="sobre__ficha-card">
-            <div class="sobre__ficha-label">Duração</div>
-            <div class="sobre__ficha-value">1h a 1h30</div>
-          </div>
-          <div class="sobre__ficha-card">
-            <div class="sobre__ficha-label">Tom</div>
-            <div class="sobre__ficha-value">Humor + Opinião forte</div>
-          </div>
-          <div class="sobre__ficha-card">
-            <div class="sobre__ficha-label">Gravação</div>
-            <div class="sobre__ficha-value">Estúdio próprio</div>
+        </div>
+        <div class="anim-up">
+          <div class="img-placeholder programa__image" data-image="imagem-nosso-programa">
+            <span>IMAGEM NOSSO PROGRAMA</span>
           </div>
         </div>
       </div>
-      <div class="sobre__visual animate-on-scroll stagger-3">
-        <img src="assets/2.png" alt="MariTaty — Programa de mesa" style="object-position: center;">
-      </div>
     </div>
   </section>
 
-  <!-- ==========================================
-       SECTION 3 — AS APRESENTADORAS
-       ========================================== -->
+  <!-- ============================================
+       SECAO 3 - AS APRESENTADORAS + INVESTINDO EM NOS
+       ============================================ -->
   <section class="apresentadoras" id="apresentadoras">
-    <h2 class="section-title section-title--center section-title--light animate-on-scroll">As Apresentadoras</h2>
-    <div class="apresentadoras__grid">
-      <!-- MARI ALEXANDRE -->
-      <div class="apresentadora animate-on-scroll stagger-1">
-        <div class="apresentadora__photo">
-          <img src="assets/4.png" alt="Mari Alexandre">
-        </div>
-        <h3 class="apresentadora__name">Mari Alexandre</h3>
-        <p class="apresentadora__bio">Modelo, atriz e apresentadora com mais de 30 anos de presença na mídia brasileira. Participou de programas icônicos da TV aberta como Casa dos Artistas (SBT), Escolinha do Barulho e Escolinha do Gugu (Record), onde criou a personagem 'Marilyn Brasil'. Estrelou mais de 12 comerciais de TV, incluindo campanha com a Bombril. Apresentou programa na Rádio Transamérica. Inspirou a capa do álbum dos Mamonas Assassinas. Mãe do Záion.</p>
-        <div class="apresentadora__social">
-          <div class="social-stat">
-            <span class="social-stat__platform">Instagram</span>
-            <span class="social-stat__number" data-target="494">0</span>
-            <span class="social-stat__label">K</span>
-          </div>
-          <div class="social-stat">
-            <span class="social-stat__platform">TikTok</span>
-            <span class="social-stat__number" data-target="26.8">0</span>
-            <span class="social-stat__label">K</span>
-          </div>
-          <div class="social-stat">
-            <span class="social-stat__platform">Facebook</span>
-            <span class="social-stat__number" data-target="4.4">0</span>
-            <span class="social-stat__label">K</span>
-          </div>
-        </div>
-      </div>
+    <div class="blob blob--terracota" style="width: 300px; height: 300px; top: 5%; left: -80px; opacity: 0.08;" data-speed="0.03"></div>
+    <div class="blob blob--nude" style="width: 250px; height: 250px; bottom: 15%; right: -60px; opacity: 0.08;" data-speed="0.05"></div>
 
-      <!-- TATY ABREU -->
-      <div class="apresentadora animate-on-scroll stagger-2">
-        <div class="apresentadora__photo">
-          <img src="assets/5.png" alt="Taty Abreu">
-        </div>
-        <h3 class="apresentadora__name">Taty Abreu</h3>
-        <p class="apresentadora__bio">Criadora de conteúdo digital, apresentadora e influenciadora com foco em humor, dicas, maternidade e vida real. Mãe de gêmeos, Taty acumula mais de 80 milhões de visualizações em seus conteúdos. Conta verificada no Instagram. Já realizou trabalhos com marcas como Emma Colchões e participações no SBT. Traz para o MariTaty o olhar autêntico da mulher brasileira que equilibra família, trabalho e opinião.</p>
-        <div class="apresentadora__social">
-          <div class="social-stat">
-            <span class="social-stat__platform">Instagram <svg viewBox="0 0 24 24" width="14" height="14" style="fill: #4A9FE5; vertical-align: middle; margin-left: 2px;"><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.35-1.806-4.256-4.03-4.256-.932 0-1.795.342-2.46.937C13.23 3.09 12.156 2.5 10.95 2.5c-1.762 0-3.24 1.254-3.695 2.97C6.887 5.19 6.458 5.032 6 5.032c-1.66 0-3 1.418-3 3.167 0 .58.153 1.122.42 1.59C2.027 10.4 1 11.795 1 13.38c0 2.21 1.682 4.004 3.756 4.004.37 0 .73-.053 1.073-.153.426 1.56 1.81 2.72 3.453 2.72 1.147 0 2.174-.543 2.842-1.39.52.36 1.15.568 1.826.568 1.765 0 3.203-1.443 3.203-3.22 0-.253-.03-.5-.084-.738C19.003 14.636 20.5 13.16 20.5 11.35c0-.198-.016-.394-.046-.586.93-.32 1.632-1.126 1.932-2.076.027-.07.05-.14.07-.21.003-.015.007-.03.01-.044zM11.866 16.31l-5.022-4.56 1.46-1.344 3.404 3.1 6.376-6.47 1.57 1.456-7.788 7.818z"/></svg></span>
-            <span class="social-stat__number" data-target="252">0</span>
-            <span class="social-stat__label">K</span>
-          </div>
-          <div class="social-stat">
-            <span class="social-stat__platform">YouTube</span>
-            <span class="social-stat__number" data-target="19">0</span>
-            <span class="social-stat__label">K</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <div class="container">
+      <h2 class="apresentadoras__section-title anim-up">As <span>Apresentadoras</span></h2>
 
-  <!-- ==========================================
-       SECTION 4 — ALCANCE COMBINADO
-       ========================================== -->
-  <section class="alcance" id="alcance">
-    <div class="alcance__inner">
-      <h2 class="section-title section-title--center animate-on-scroll">Alcance Combinado</h2>
-      <div class="alcance__big-number animate-on-scroll stagger-1" data-target="796" id="bigCounter">0K</div>
-      <p class="alcance__big-label animate-on-scroll stagger-2">Seguidores combinados</p>
+      <div class="apresentadoras__grid">
+        <!-- MARI ALEXANDRE -->
+        <div class="apresentadora anim-up">
+          <div class="img-placeholder apresentadora__foto" data-image="mari-principal">
+            <span>FOTO MARI PRINCIPAL</span>
+          </div>
+          <h3 class="apresentadora__nome">Mari Alexandre</h3>
+          <p class="apresentadora__bio">
+            Modelo, atriz e apresentadora com mais de 30 anos de presenca na midia brasileira. Participou de programas iconicos da TV aberta. Mae do Zaion.
+          </p>
 
-      <div class="alcance__grid">
-        <div class="alcance__card animate-on-scroll stagger-1">
-          <div class="alcance__card-icon">Instagram</div>
-          <div class="alcance__card-number">746K</div>
-        </div>
-        <div class="alcance__card animate-on-scroll stagger-2">
-          <div class="alcance__card-icon">TikTok</div>
-          <div class="alcance__card-number">26.8K+</div>
-        </div>
-        <div class="alcance__card animate-on-scroll stagger-3">
-          <div class="alcance__card-icon">YouTube</div>
-          <div class="alcance__card-number">19K</div>
-        </div>
-        <div class="alcance__card animate-on-scroll stagger-4">
-          <div class="alcance__card-icon">Facebook</div>
-          <div class="alcance__card-number">4.4K</div>
-        </div>
-      </div>
+          <div class="apresentadora__destaques">
+            <div class="destaque-item">
+              <div class="destaque-item__numero">30+</div>
+              <div class="destaque-item__desc">anos de TV aberta</div>
+            </div>
+            <div class="destaque-item">
+              <div class="destaque-item__numero">12</div>
+              <div class="destaque-item__desc">comerciais de TV (incluindo Bombril)</div>
+            </div>
+            <div class="destaque-item">
+              <div class="destaque-item__numero">Capa</div>
+              <div class="destaque-item__desc">do album dos Mamonas Assassinas</div>
+            </div>
+            <div class="destaque-item">
+              <div class="destaque-item__numero">Marilyn Brasil</div>
+              <div class="destaque-item__desc">personagem iconica na Escolinha do Gugu</div>
+            </div>
+          </div>
 
-      <div class="alcance__highlight animate-on-scroll">
-        <strong>+80 milhões</strong> de visualizações acumuladas (Taty)
-      </div>
-    </div>
-  </section>
+          <div class="apresentadora__marcos">
+            <h4>Marcos na carreira</h4>
+            <div class="marcos-tags">
+              <span class="marcos-tag">Casa dos Artistas (SBT)</span>
+              <span class="marcos-tag">Escolinha do Barulho (Record)</span>
+              <span class="marcos-tag">Escolinha do Gugu (Record)</span>
+              <span class="marcos-tag">Radio Transamerica</span>
+            </div>
+          </div>
 
-  <!-- ==========================================
-       SECTION 5 — PÚBLICO-ALVO
-       ========================================== -->
-  <section class="publico" id="publico">
-    <div class="publico__inner">
-      <h2 class="section-title section-title--center section-title--light animate-on-scroll">Público-Alvo</h2>
+          <div class="apresentadora__redes">
+            <div class="rede-item">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+              <div class="rede-item__info">
+                <div class="rede-item__handle">@mari_alexandre10</div>
+                <div class="rede-item__numero" data-count="494000" data-suffix="K" data-display="494">494K</div>
+              </div>
+            </div>
+            <div class="rede-item">
+              <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" fill="currentColor"/></svg>
+              <div class="rede-item__info">
+                <div class="rede-item__handle">@mari_alexandre1</div>
+                <div class="rede-item__numero" data-count="26800" data-suffix="K" data-display="26.8">26.8K</div>
+              </div>
+            </div>
+            <div class="rede-item">
+              <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              <div class="rede-item__info">
+                <div class="rede-item__handle">Facebook</div>
+                <div class="rede-item__numero" data-count="4400" data-suffix="K" data-display="4.4">4.4K</div>
+              </div>
+            </div>
+          </div>
+        </div>
 
-      <div class="publico__grid">
-        <div class="publico__item animate-on-scroll stagger-1">
-          <div class="publico__icon">
-            <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        <!-- TATY ABREU -->
+        <div class="apresentadora anim-up">
+          <div class="img-placeholder apresentadora__foto" data-image="taty-principal">
+            <span>FOTO TATY PRINCIPAL</span>
           </div>
-          <div>
-            <div class="publico__item-label">Gênero</div>
-            <div class="publico__item-value">Mulheres (predominante)</div>
+          <h3 class="apresentadora__nome">Taty Abreu</h3>
+          <p class="apresentadora__bio">
+            Criadora de conteudo digital, apresentadora e influenciadora com foco em humor, dicas, maternidade e vida real. Mae de gemeos. Conta verificada no Instagram.
+          </p>
+
+          <div class="apresentadora__destaques">
+            <div class="destaque-item">
+              <div class="destaque-item__numero">80M+</div>
+              <div class="destaque-item__desc">de visualizacoes</div>
+            </div>
+            <div class="destaque-item">
+              <div class="destaque-item__numero">252K</div>
+              <div class="destaque-item__desc">seguidores verificados</div>
+            </div>
+            <div class="destaque-item" style="grid-column: 1 / -1;">
+              <div class="destaque-item__numero">Organico</div>
+              <div class="destaque-item__desc">crescimento 100% organico</div>
+            </div>
           </div>
-        </div>
-        <div class="publico__item animate-on-scroll stagger-2">
-          <div class="publico__icon">
-            <svg viewBox="0 0 24 24"><path d="M9 11H7v2h2v-2zm4 0h-2v2h2v-2zm4 0h-2v2h2v-2zm2-7h-1V2h-2v2H8V2H6v2H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 16H5V9h14v11z"/></svg>
+
+          <div class="apresentadora__marcos">
+            <h4>Marcas parceiras</h4>
+            <div class="marcos-tags">
+              <span class="marcos-tag">Emma Colchoes</span>
+              <span class="marcos-tag">SBT</span>
+              <span class="marcos-tag">Belissencce</span>
+            </div>
           </div>
-          <div>
-            <div class="publico__item-label">Faixa Etária</div>
-            <div class="publico__item-value">30 a 70 anos</div>
-          </div>
-        </div>
-        <div class="publico__item animate-on-scroll stagger-3">
-          <div class="publico__icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-          </div>
-          <div>
-            <div class="publico__item-label">Localização</div>
-            <div class="publico__item-value">Brasil, grandes centros urbanos</div>
-          </div>
-        </div>
-        <div class="publico__item animate-on-scroll stagger-4">
-          <div class="publico__icon">
-            <svg viewBox="0 0 24 24"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
-          </div>
-          <div>
-            <div class="publico__item-label">Perfil</div>
-            <div class="publico__item-value">Alto poder de decisão de compra</div>
+
+          <div class="apresentadora__redes">
+            <div class="rede-item">
+              <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+              <div class="rede-item__info">
+                <div class="rede-item__handle">@bytatyabreu</div>
+                <div class="rede-item__numero" data-count="252000" data-suffix="K" data-display="252">252K</div>
+              </div>
+              <span class="rede-item__badge">Verificado</span>
+            </div>
+            <div class="rede-item">
+              <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              <div class="rede-item__info">
+                <div class="rede-item__handle">@bytatyabreu</div>
+                <div class="rede-item__numero" data-count="19000" data-suffix="K" data-display="19">19K</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="publico__perfil animate-on-scroll">
-        <p>Mulheres que acompanham atualidades, mães, profissionais e consumidoras ativas com alto poder de decisão de compra</p>
-      </div>
+      <!-- INVESTINDO EM NOS -->
+      <div class="investindo">
+        <h3 class="anim-up">Investindo em <span>Nos</span></h3>
+        <p class="investindo__subtitle anim-up">Motivos para sua marca fazer parte do MariTaty</p>
 
-      <div class="publico__tags animate-on-scroll">
-        <span class="publico__tag">Notícias</span>
-        <span class="publico__tag">Comportamento</span>
-        <span class="publico__tag">Cultura Pop</span>
-        <span class="publico__tag">Maternidade</span>
-        <span class="publico__tag">Humor</span>
-        <span class="publico__tag">Lifestyle</span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================
-       SECTION 6 — POR QUE ANUNCIAR
-       ========================================== -->
-  <section class="porque" id="publicidade">
-    <div class="porque__inner">
-      <h2 class="section-title section-title--center animate-on-scroll">Por Que Anunciar</h2>
-
-      <div class="porque__grid">
-        <div class="porque__card animate-on-scroll stagger-1">
-          <div class="porque__card-number">01</div>
-          <h3 class="porque__card-title">Duas vozes com credibilidade</h3>
-          <p class="porque__card-text">Mari: 30+ anos de TV aberta. Taty: 252K+ seguidores e 80M+ views.</p>
-        </div>
-        <div class="porque__card animate-on-scroll stagger-2">
-          <div class="porque__card-number">02</div>
-          <h3 class="porque__card-title">Público feminino 30-70</h3>
-          <p class="porque__card-text">Faixa com altíssimo poder de decisão de compra em saúde, beleza, casa, alimentação, educação e finanças.</p>
-        </div>
-        <div class="porque__card animate-on-scroll stagger-3">
-          <div class="porque__card-number">03</div>
-          <h3 class="porque__card-title">Multiplataforma</h3>
-          <p class="porque__card-text">YouTube + Spotify + Instagram + TikTok = máxima exposição para a marca.</p>
-        </div>
-        <div class="porque__card animate-on-scroll stagger-4">
-          <div class="porque__card-number">04</div>
-          <h3 class="porque__card-title">Humor + opinião = engajamento</h3>
-          <p class="porque__card-text">Formato que gera compartilhamento orgânico e viralização natural.</p>
-        </div>
-        <div class="porque__card animate-on-scroll stagger-5">
-          <div class="porque__card-number">05</div>
-          <h3 class="porque__card-title">Estúdio próprio</h3>
-          <p class="porque__card-text">Qualidade técnica garantida e flexibilidade para ações personalizadas de marca.</p>
-        </div>
-        <div class="porque__card animate-on-scroll stagger-6">
-          <div class="porque__card-number">06</div>
-          <h3 class="porque__card-title">Base de audiência existente</h3>
-          <p class="porque__card-text">O programa já nasce com quase 800K de audiência combinada.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================
-       SECTION 7 — FORMATOS DE PUBLICIDADE
-       ========================================== -->
-  <section class="formatos">
-    <div class="formatos__inner">
-      <h2 class="section-title section-title--center section-title--light animate-on-scroll">Formatos de Publicidade</h2>
-      <p class="formatos__subtitle animate-on-scroll">Valores sob consulta</p>
-
-      <div class="formatos__grid">
-        <div class="formatos__card animate-on-scroll stagger-1">
-          <div class="formatos__card-number">01</div>
-          <h3 class="formatos__card-title">Inserção no programa</h3>
-          <p class="formatos__card-text">Menção orgânica durante o episódio, com leitura de anúncio pelas apresentadoras.</p>
-        </div>
-        <div class="formatos__card animate-on-scroll stagger-2">
-          <div class="formatos__card-number">02</div>
-          <h3 class="formatos__card-title">Patrocínio de quadro</h3>
-          <p class="formatos__card-text">"Este momento é oferecido por [marca]" — associação direta com um segmento do programa.</p>
-        </div>
-        <div class="formatos__card animate-on-scroll stagger-3">
-          <div class="formatos__card-number">03</div>
-          <h3 class="formatos__card-title">Product placement</h3>
-          <p class="formatos__card-text">Produto visível no cenário ou utilizado pelas apresentadoras durante o programa.</p>
-        </div>
-        <div class="formatos__card animate-on-scroll stagger-4">
-          <div class="formatos__card-number">04</div>
-          <h3 class="formatos__card-title">Conteúdo branded</h3>
-          <p class="formatos__card-text">Episódio temático ou segmento especial produzido em parceria com a marca.</p>
-        </div>
-        <div class="formatos__card animate-on-scroll stagger-5">
-          <div class="formatos__card-number">05</div>
-          <h3 class="formatos__card-title">Cortes patrocinados</h3>
-          <p class="formatos__card-text">Cortes para Instagram e TikTok com menção à marca, amplificando alcance.</p>
-        </div>
-        <div class="formatos__card animate-on-scroll stagger-6">
-          <div class="formatos__card-number">06</div>
-          <h3 class="formatos__card-title">Presença em entrevistas</h3>
-          <p class="formatos__card-text">Marca como co-apresentadora ou patrocinadora de episódio especial.</p>
-        </div>
-        <div class="formatos__card animate-on-scroll stagger-7">
-          <div class="formatos__card-number">07</div>
-          <h3 class="formatos__card-title">Ação 360°</h3>
-          <p class="formatos__card-text">Pacote completo: inserção no programa + posts nas redes pessoais das apresentadoras.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==========================================
-       SECTION 8 — MARCAS & EXPERIÊNCIAS
-       ========================================== -->
-  <section class="marcas">
-    <div class="marcas__inner">
-      <h2 class="section-title section-title--center animate-on-scroll">Marcas & Experiências</h2>
-
-      <div class="marcas__grid">
-        <div class="animate-on-scroll stagger-1">
-          <h3 class="marcas__col-title">Mari Alexandre</h3>
-          <div class="marcas__list">
-            <span class="marcas__item">Bombril</span>
-            <span class="marcas__item">Rádio Transamérica</span>
-            <span class="marcas__item">SBT</span>
-            <span class="marcas__item">RecordTV</span>
+        <div class="investindo__grid">
+          <div class="investindo__card anim-up">
+            <div class="investindo__card-icon">
+              <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h4>Duas vozes com credibilidade</h4>
+            <p>Mari: 30+ anos de TV. Taty: 252K+ seguidores e 80M+ views.</p>
           </div>
-        </div>
-        <div class="animate-on-scroll stagger-2">
-          <h3 class="marcas__col-title">Taty Abreu</h3>
-          <div class="marcas__list">
-            <span class="marcas__item">Emma Colchões</span>
-            <span class="marcas__item">SBT</span>
-            <span class="marcas__item">Belissencce</span>
+          <div class="investindo__card anim-up">
+            <div class="investindo__card-icon">
+              <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </div>
+            <h4>Publico feminino 30 a 70</h4>
+            <p>Alto poder de decisao de compra.</p>
+          </div>
+          <div class="investindo__card anim-up">
+            <div class="investindo__card-icon">
+              <svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <h4>Multiplataforma</h4>
+            <p>YouTube + Spotify + Instagram + TikTok.</p>
+          </div>
+          <div class="investindo__card anim-up">
+            <div class="investindo__card-icon">
+              <svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <h4>Humor + opiniao = engajamento</h4>
+            <p>Compartilhamento organico.</p>
+          </div>
+          <div class="investindo__card anim-up">
+            <div class="investindo__card-icon">
+              <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </div>
+            <h4>Estudio proprio</h4>
+            <p>Qualidade tecnica e flexibilidade.</p>
+          </div>
+          <div class="investindo__card anim-up">
+            <div class="investindo__card-icon">
+              <svg viewBox="0 0 24 24"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+            </div>
+            <h4>Base de audiencia existente</h4>
+            <p>Quase 800K combinados.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ==========================================
-       SECTION 9 — CONTATO
-       ========================================== -->
+  <!-- ============================================
+       SECAO 4 - NICHOS
+       ============================================ -->
+  <section class="nichos">
+    <div class="blob blob--gradient" style="width: 400px; height: 400px; top: -80px; left: 50%; transform: translateX(-50%); opacity: 0.12;" data-speed="0.04"></div>
+    <div class="blob blob--terracota" style="width: 200px; height: 200px; bottom: -60px; left: 10%; opacity: 0.1;" data-speed="0.05"></div>
+
+    <div class="container">
+      <h2 class="nichos__title anim-up">Nossos <span>Nichos</span></h2>
+      <p class="nichos__subtitle anim-up">Temas que dominam o programa</p>
+
+      <div class="nichos__grid">
+        <div class="nicho-card anim-up">
+          <div class="nicho-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8z"/></svg>
+          </div>
+          <div class="nicho-card__label">Noticias e Atualidades</div>
+        </div>
+        <div class="nicho-card anim-up">
+          <div class="nicho-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          </div>
+          <div class="nicho-card__label">Politica e Opiniao</div>
+        </div>
+        <div class="nicho-card anim-up">
+          <div class="nicho-card__icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <div class="nicho-card__label">Comportamento</div>
+        </div>
+        <div class="nicho-card anim-up">
+          <div class="nicho-card__icon">
+            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="nicho-card__label">Cultura Pop</div>
+        </div>
+        <div class="nicho-card anim-up">
+          <div class="nicho-card__icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+          </div>
+          <div class="nicho-card__label">Humor</div>
+        </div>
+        <div class="nicho-card anim-up">
+          <div class="nicho-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <div class="nicho-card__label">Maternidade e Familia</div>
+        </div>
+        <div class="nicho-card anim-up">
+          <div class="nicho-card__icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div class="nicho-card__label">Lifestyle</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SECAO 5 - REDES SOCIAIS
+       ============================================ -->
+  <section class="redes">
+    <div class="container">
+      <h2 class="redes__title anim-up">Redes <span>Sociais</span></h2>
+
+      <div class="redes__grid">
+        <div class="rede-card anim-up">
+          <div class="rede-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          </div>
+          <div class="rede-card__name">Instagram</div>
+          <p class="rede-card__desc">Conteudo diario, stories, reels, bastidores</p>
+        </div>
+        <div class="rede-card anim-up">
+          <div class="rede-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          </div>
+          <div class="rede-card__name">YouTube</div>
+          <p class="rede-card__desc">Episodios completos, entrevistas, cortes</p>
+        </div>
+        <div class="rede-card anim-up">
+          <div class="rede-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          </div>
+          <div class="rede-card__name">TikTok</div>
+          <p class="rede-card__desc">Cortes virais, humor, tendencias</p>
+        </div>
+        <div class="rede-card anim-up">
+          <div class="rede-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+          </div>
+          <div class="rede-card__name">Spotify</div>
+          <p class="rede-card__desc">Versao audio, disponivel em todas as plataformas de podcast</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SECAO 6 - NUMEROS E ALCANCE
+       ============================================ -->
+  <section class="numeros" id="alcance">
+    <div class="blob blob--terracota" style="width: 300px; height: 300px; top: -60px; right: -80px;" data-speed="0.04"></div>
+    <div class="blob blob--nude" style="width: 250px; height: 250px; bottom: -40px; left: -60px;" data-speed="0.05"></div>
+
+    <div class="container">
+      <h2 class="numeros__title anim-up">Numeros e <span>Alcance</span></h2>
+
+      <div class="numeros__hero anim-up">
+        <div class="numeros__big" id="bigNumber">~0</div>
+        <div class="numeros__big-label">seguidores combinados</div>
+      </div>
+
+      <div class="numeros__grid">
+        <div class="numero-card anim-up">
+          <div class="numero-card__value">~796K</div>
+          <div class="numero-card__label">Alcance combinado</div>
+        </div>
+        <div class="numero-card anim-up">
+          <div class="numero-card__value">67 mil</div>
+          <div class="numero-card__label">Contas alcancadas</div>
+        </div>
+        <div class="numero-card anim-up">
+          <div class="numero-card__value">32%</div>
+          <div class="numero-card__label">Engajamento</div>
+        </div>
+        <div class="numero-card anim-up">
+          <div class="numero-card__value">Organico</div>
+          <div class="numero-card__label">Crescimento</div>
+        </div>
+      </div>
+
+      <div class="numeros__destaque anim-up">
+        <p>+80 milhoes de visualizacoes (Taty)</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SECAO 7 - PERFIL DO PUBLICO
+       ============================================ -->
+  <section class="publico">
+    <div class="blob blob--gradient" style="width: 400px; height: 400px; top: -100px; left: -100px; opacity: 0.08;" data-speed="0.03"></div>
+    <div class="blob blob--terracota" style="width: 300px; height: 300px; bottom: -80px; right: -80px; opacity: 0.06;" data-speed="0.05"></div>
+
+    <div class="container">
+      <h2 class="publico__title anim-up">Perfil do <span>Publico</span></h2>
+
+      <div class="publico__stats">
+        <div class="publico__stat anim-up">
+          <div class="publico__stat-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="publico__stat-value">30 a 70</div>
+          <div class="publico__stat-label">Faixa etaria (anos)</div>
+        </div>
+        <div class="publico__stat anim-up">
+          <div class="publico__stat-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          </div>
+          <div class="publico__stat-value">65%</div>
+          <div class="publico__stat-label">Feminino</div>
+        </div>
+        <div class="publico__stat anim-up">
+          <div class="publico__stat-icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <div class="publico__stat-value">Brasil</div>
+          <div class="publico__stat-label">Localizacao</div>
+        </div>
+      </div>
+
+      <div class="publico__tags anim-up">
+        <span class="publico__tag publico__tag--laranja">Noticias</span>
+        <span class="publico__tag publico__tag--bege">Comportamento</span>
+        <span class="publico__tag publico__tag--laranja">Cultura Pop</span>
+        <span class="publico__tag publico__tag--bege">Maternidade</span>
+        <span class="publico__tag publico__tag--laranja">Humor</span>
+        <span class="publico__tag publico__tag--bege">Lifestyle</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SECAO 8 - VISUALIZACOES (Carrossel)
+       ============================================ -->
+  <section class="visualizacoes">
+    <div class="blob blob--bege" style="width: 300px; height: 300px; top: -60px; right: -50px;" data-speed="0.04"></div>
+    <div class="blob blob--terracota" style="width: 200px; height: 200px; bottom: -40px; left: -40px;" data-speed="0.06"></div>
+
+    <div class="container">
+      <h2 class="visualizacoes__title anim-up"><span>Visualizacoes</span></h2>
+      <p class="visualizacoes__subtitle anim-up">Trabalho criativo com marcas de destaque no mercado nacional</p>
+
+      <div class="swiper mockup-swiper anim-up">
+        <div class="swiper-wrapper">
+          <!-- Mockup 1 -->
+          <div class="swiper-slide mockup-slide">
+            <div class="mockup-phone">
+              <div class="mockup-phone__notch"></div>
+              <div class="mockup-phone__screen">
+                <div class="img-placeholder" data-image="mockup-1" style="background-color: #C47858;">
+                  <span>MOCKUP 1</span>
+                </div>
+                <div class="mockup-phone__badge">22,2 mi views</div>
+              </div>
+            </div>
+          </div>
+          <!-- Mockup 2 -->
+          <div class="swiper-slide mockup-slide">
+            <div class="mockup-phone">
+              <div class="mockup-phone__notch"></div>
+              <div class="mockup-phone__screen">
+                <div class="img-placeholder" data-image="mockup-2" style="background-color: #E8A838;">
+                  <span>MOCKUP 2</span>
+                </div>
+                <div class="mockup-phone__badge">8,2 mi views</div>
+              </div>
+            </div>
+          </div>
+          <!-- Mockup 3 -->
+          <div class="swiper-slide mockup-slide">
+            <div class="mockup-phone">
+              <div class="mockup-phone__notch"></div>
+              <div class="mockup-phone__screen">
+                <div class="img-placeholder" data-image="mockup-3" style="background-color: #D4A574;">
+                  <span>MOCKUP 3</span>
+                </div>
+                <div class="mockup-phone__badge">5,8 mi views</div>
+              </div>
+            </div>
+          </div>
+          <!-- Mockup 4 -->
+          <div class="swiper-slide mockup-slide">
+            <div class="mockup-phone">
+              <div class="mockup-phone__notch"></div>
+              <div class="mockup-phone__screen">
+                <div class="img-placeholder" data-image="mockup-4" style="background-color: #E8C9B0;">
+                  <span>MOCKUP 4</span>
+                </div>
+                <div class="mockup-phone__badge">1,1 mi views</div>
+              </div>
+            </div>
+          </div>
+          <!-- Mockup 5 -->
+          <div class="swiper-slide mockup-slide">
+            <div class="mockup-phone">
+              <div class="mockup-phone__notch"></div>
+              <div class="mockup-phone__screen">
+                <div class="img-placeholder" data-image="mockup-5" style="background-color: #C47858;">
+                  <span>MOCKUP 5</span>
+                </div>
+                <div class="mockup-phone__badge">212 mil views</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SECAO 9 - FORMATOS DE PARCERIA
+       ============================================ -->
+  <section class="parcerias" id="publicidade">
+    <div class="container">
+      <h2 class="parcerias__title anim-up">Formatos de <span>Parceria</span></h2>
+      <p class="parcerias__subtitle anim-up">Diversas formas de conectar sua marca ao nosso publico</p>
+
+      <div class="parcerias__grid">
+        <div class="parceria-card anim-up">
+          <div class="parceria-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+          </div>
+          <h4>Insercao no programa</h4>
+          <p>Mencao organica com leitura pelas apresentadoras</p>
+        </div>
+        <div class="parceria-card anim-up">
+          <div class="parceria-card__icon">
+            <svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+          </div>
+          <h4>Patrocinio de quadro</h4>
+          <p>"Este momento e oferecido por [marca]"</p>
+        </div>
+        <div class="parceria-card anim-up">
+          <div class="parceria-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          </div>
+          <h4>Product placement</h4>
+          <p>Produto no cenario ou usado pelas apresentadoras</p>
+        </div>
+        <div class="parceria-card anim-up">
+          <div class="parceria-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+          <h4>Conteudo branded</h4>
+          <p>Episodio ou segmento em parceria</p>
+        </div>
+        <div class="parceria-card anim-up">
+          <div class="parceria-card__icon">
+            <svg viewBox="0 0 24 24"><polygon points="23 7 16 12 23 17 23 7"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>
+          </div>
+          <h4>Cortes patrocinados</h4>
+          <p>Cortes pra Instagram e TikTok com mencao a marca</p>
+        </div>
+        <div class="parceria-card anim-up">
+          <div class="parceria-card__icon">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <h4>Presenca em entrevistas</h4>
+          <p>Marca como co-apresentadora de episodio especial</p>
+        </div>
+        <div class="parceria-card parceria-card--full anim-up">
+          <div class="parceria-card__icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          </div>
+          <h4>Acao 360</h4>
+          <p>Pacote completo: programa + redes pessoais</p>
+        </div>
+      </div>
+
+      <p class="parcerias__footer anim-up">Valores sob consulta</p>
+    </div>
+  </section>
+
+  <!-- ============================================
+       SECAO 10 - CTA / CONTATO COMERCIAL
+       ============================================ -->
   <section class="contato" id="contato">
-    <div class="contato__inner">
-      <h2 class="contato__title animate-on-scroll">Vamos trabalhar juntos?</h2>
-      <p class="contato__subtitle animate-on-scroll stagger-1">Entre em contato para propostas comerciais, patrocínios e parcerias com o programa MariTaty</p>
+    <div class="container">
+      <h2 class="contato__title anim-up">VEM INFORMAR COM A GENTE!</h2>
+      <p class="contato__subtitle anim-up">
+        Entre em contato para propostas comerciais, patrocinios e parcerias com o programa MariTaty
+      </p>
 
-      <div class="contato__links animate-on-scroll stagger-2">
-        <a href="mailto:assessoriatatyabreu@gmail.com" class="contato__link">
-          <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
-          assessoriatatyabreu@gmail.com
+      <a href="mailto:assessoriatatyabreu@gmail.com" class="contato__email anim-up">assessoriatatyabreu@gmail.com</a>
+
+      <div class="contato__buttons anim-up">
+        <a href="#" class="btn-whatsapp">
+          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+          NUMERO A DEFINIR
         </a>
-        <a href="#" class="contato__link">
-          <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.019-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-          WhatsApp (em breve)
-        </a>
+        <a href="#contato" class="btn-primary">Solicitar Proposta Comercial</a>
       </div>
 
-      <div class="contato__cta animate-on-scroll stagger-3">
-        <a href="mailto:assessoriatatyabreu@gmail.com" class="btn btn--primary btn--large">Solicitar Proposta Comercial</a>
+      <div class="img-placeholder contato__logo" data-image="logo-maritaty-footer">
+        <span>LOGO MARITATY</span>
       </div>
-
-      <div class="contato__footer animate-on-scroll stagger-4">
-        <img src="assets/logo-maritaty.png" alt="MariTaty" class="contato__footer-logo">
-        <p class="contato__footer-tagline">"Duas mulheres, todas as opiniões."</p>
-        <div class="contato__palette">
-          <span class="contato__palette-swatch" style="background: #2C1810;"></span>
-          <span class="contato__palette-swatch" style="background: #B5613A;"></span>
-          <span class="contato__palette-swatch" style="background: #C4785A;"></span>
-          <span class="contato__palette-swatch" style="background: #D4A574;"></span>
-          <span class="contato__palette-swatch" style="background: #E8C9A8;"></span>
-          <span class="contato__palette-swatch" style="background: #F5EDE4;"></span>
-        </div>
-      </div>
+      <p class="contato__handle">@maritaty</p>
     </div>
   </section>
 
-  <script src="script.js"></script>
+  <!-- ============================================
+       FOOTER
+       ============================================ -->
+  <footer class="footer">
+    <div class="container">
+      <p>MariTaty 2025. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- ============================================
+       BIBLIOTECAS CDN
+       ============================================ -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    /* ============================================
+       LENIS - SMOOTH SCROLL
+       ============================================ */
+    const lenis = new Lenis({
+      lerp: 0.1,
+      smooth: true
+    });
+
+    // Integrar Lenis com o GSAP ticker
+    lenis.on('scroll', ScrollTrigger.update);
+
+    gsap.ticker.add((time) => {
+      lenis.raf(time * 1000);
+    });
+
+    gsap.ticker.lagSmoothing(0);
+
+    /* ============================================
+       NAVEGACAO - SCROLL E MENU MOBILE
+       ============================================ */
+    const navbar = document.getElementById('navbar');
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    // Transicao do menu ao rolar
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 80) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+
+    // Menu hamburger
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
+      mobileMenu.classList.toggle('active');
+      document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+    });
+
+    // Fechar menu ao clicar em link mobile
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      });
+    });
+
+    // Scroll suave para ancoras usando Lenis
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(anchor.getAttribute('href'));
+        if (target) {
+          lenis.scrollTo(target, { offset: -80 });
+        }
+      });
+    });
+
+    /* ============================================
+       GSAP - REGISTRAR SCROLLTRIGGER
+       ============================================ */
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* ============================================
+       ANIMACOES DE ENTRADA - HERO
+       ============================================ */
+    const heroElements = document.querySelectorAll('.hero .anim-up');
+    gsap.fromTo(heroElements,
+      { opacity: 0, y: 40 },
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.8,
+        stagger: 0.15,
+        ease: 'power3.out',
+        delay: 0.3
+      }
+    );
+
+    /* ============================================
+       ANIMACOES DE ENTRADA - DEMAIS SECOES
+       ============================================ */
+    const sections = document.querySelectorAll('section:not(.hero)');
+    sections.forEach(section => {
+      const elements = section.querySelectorAll('.anim-up');
+      if (elements.length === 0) return;
+
+      gsap.fromTo(elements,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          stagger: 0.1,
+          ease: 'power3.out',
+          scrollTrigger: {
+            trigger: section,
+            start: 'top 80%',
+            once: true
+          }
+        }
+      );
+    });
+
+    /* ============================================
+       ANIMACAO - FOTOS CIRCULARES (CLIP-PATH)
+       ============================================ */
+    document.querySelectorAll('.apresentadora__foto').forEach(foto => {
+      gsap.to(foto, {
+        clipPath: 'circle(50% at 50% 50%)',
+        duration: 1.2,
+        ease: 'power3.out',
+        scrollTrigger: {
+          trigger: foto,
+          start: 'top 85%',
+          once: true
+        }
+      });
+    });
+
+    /* ============================================
+       ANIMACAO - CONTAGEM DE NUMEROS
+       ============================================ */
+    // Numero grande central (~796K)
+    const bigNumberEl = document.getElementById('bigNumber');
+    const countObj = { val: 0 };
+
+    ScrollTrigger.create({
+      trigger: bigNumberEl,
+      start: 'top 85%',
+      once: true,
+      onEnter: () => {
+        gsap.to(countObj, {
+          val: 796,
+          duration: 2,
+          ease: 'power2.out',
+          onUpdate: () => {
+            bigNumberEl.textContent = '~' + Math.floor(countObj.val) + 'K';
+          }
+        });
+      }
+    });
+
+    // Numeros das redes sociais das apresentadoras
+    document.querySelectorAll('.rede-item__numero[data-count]').forEach(el => {
+      const displayVal = el.getAttribute('data-display');
+      const suffix = el.getAttribute('data-suffix');
+      const targetNum = parseFloat(displayVal);
+
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 90%',
+        once: true,
+        onEnter: () => {
+          const obj = { val: 0 };
+          gsap.to(obj, {
+            val: targetNum,
+            duration: 1.5,
+            ease: 'power2.out',
+            onUpdate: () => {
+              // Formatar com uma casa decimal se necessario
+              const formatted = obj.val % 1 !== 0
+                ? obj.val.toFixed(1)
+                : Math.floor(obj.val).toString();
+              el.textContent = formatted + suffix;
+            }
+          });
+        }
+      });
+    });
+
+    /* ============================================
+       PARALLAX NOS BLOBS DECORATIVOS
+       ============================================ */
+    document.querySelectorAll('.blob[data-speed]').forEach(blob => {
+      const speed = parseFloat(blob.getAttribute('data-speed'));
+      gsap.to(blob, {
+        yPercent: -30 * speed * 100,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: blob.parentElement,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: 1
+        }
+      });
+    });
+
+    /* ============================================
+       SWIPER - CARROSSEL DE MOCKUPS
+       ============================================ */
+    new Swiper('.mockup-swiper', {
+      slidesPerView: 1.3,
+      centeredSlides: true,
+      spaceBetween: 20,
+      grabCursor: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 2.2,
+          spaceBetween: 24
+        },
+        1024: {
+          slidesPerView: 3.3,
+          spaceBetween: 32
+        }
+      }
+    });
+  </script>
 </body>
 </html>
