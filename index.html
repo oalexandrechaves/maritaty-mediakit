@@ -515,10 +515,14 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 60px;
+      align-items: start;
     }
 
     .apresentadora {
       text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     .apresentadora__foto {
@@ -542,8 +546,7 @@
       color: var(--bege);
       margin-bottom: 32px;
       max-width: 480px;
-      margin-left: auto;
-      margin-right: auto;
+      width: 100%;
     }
 
     .apresentadora__destaques {
@@ -551,6 +554,7 @@
       grid-template-columns: repeat(2, 1fr);
       gap: 16px;
       margin-bottom: 28px;
+      width: 100%;
     }
 
     .destaque-item {
@@ -576,6 +580,7 @@
 
     .apresentadora__marcos {
       margin-bottom: 28px;
+      width: 100%;
     }
 
     .apresentadora__marcos h4 {
@@ -609,6 +614,7 @@
       display: flex;
       flex-direction: column;
       gap: 12px;
+      width: 100%;
     }
 
     .rede-item {
