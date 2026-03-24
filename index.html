@@ -515,14 +515,25 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 60px;
-      align-items: start;
+      grid-template-rows: subgrid;
     }
 
     .apresentadora {
       text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      display: grid;
+      grid-template-rows: auto auto auto auto auto auto;
+      justify-items: center;
+      gap: 0;
+    }
+
+    @supports (grid-template-rows: subgrid) {
+      .apresentadoras__grid {
+        grid-template-rows: repeat(6, auto);
+      }
+      .apresentadora {
+        grid-row: span 6;
+        grid-template-rows: subgrid;
+      }
     }
 
     .apresentadora__foto {
@@ -537,24 +548,27 @@
     .apresentadora__nome {
       font-size: clamp(28px, 4vw, 40px);
       color: var(--laranja);
-      margin-bottom: 16px;
+      margin-bottom: 8px;
+      align-self: start;
     }
 
     .apresentadora__bio {
       font-size: 15px;
       line-height: 1.8;
       color: var(--bege);
-      margin-bottom: 32px;
+      margin-bottom: 16px;
       max-width: 480px;
       width: 100%;
+      align-self: start;
     }
 
     .apresentadora__destaques {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 16px;
-      margin-bottom: 28px;
+      margin-bottom: 16px;
       width: 100%;
+      align-self: start;
     }
 
     .destaque-item {
@@ -579,8 +593,9 @@
     }
 
     .apresentadora__marcos {
-      margin-bottom: 28px;
+      margin-bottom: 16px;
       width: 100%;
+      align-self: start;
     }
 
     .apresentadora__marcos h4 {
@@ -615,6 +630,7 @@
       flex-direction: column;
       gap: 12px;
       width: 100%;
+      align-self: start;
     }
 
     .rede-item {
@@ -748,7 +764,12 @@
     @media (max-width: 768px) {
       .apresentadoras__grid {
         grid-template-columns: 1fr;
+        grid-template-rows: auto !important;
         gap: 60px;
+      }
+      .apresentadora {
+        grid-row: auto !important;
+        grid-template-rows: auto;
       }
       .investindo__grid {
         grid-template-columns: 1fr;
@@ -1664,7 +1685,7 @@
               <div class="destaque-item__numero">400K+</div>
               <div class="destaque-item__desc">seguidores</div>
             </div>
-            <div class="destaque-item" style="grid-column: 1 / -1;">
+            <div class="destaque-item">
               <div class="destaque-item__numero">Orgânico</div>
               <div class="destaque-item__desc">crescimento 100% orgânico</div>
             </div>
