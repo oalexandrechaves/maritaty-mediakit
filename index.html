@@ -313,9 +313,11 @@
     .hero__image {
       width: 100%;
       max-width: 600px;
-      height: 400px;
+      height: auto;
       margin: 0 auto 40px;
       border-radius: 24px;
+      object-fit: cover;
+      display: block;
     }
 
     .hero__platforms {
@@ -1474,9 +1476,7 @@
 
       <h1 class="hero__names anim-up">Mari Alexandre<br>e Taty Abreu</h1>
 
-      <div class="img-placeholder hero__image anim-up" data-image="foto-hero-juntas">
-        <span>FOTO HERO . AS DUAS JUNTAS</span>
-      </div>
+      <img src="assets/hero-juntas.png" alt="Mari Alexandre e Taty Abreu" class="hero__image anim-up" data-image="foto-hero-juntas">
 
       <div class="hero__platforms anim-up">
         <a href="#" aria-label="YouTube">
